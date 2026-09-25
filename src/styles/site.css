@@ -63,8 +63,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
   outline: 2px solid var(--color-secondary); outline-offset: 3px;
 }
 
-/* logo：使用者提供的金色山水圓徽（public/logo.png）。白底用混合模式吃掉，亮暗兩種主題各一招 */
-.seal { display: block; width: 4rem; height: 4rem; clip-path: circle(45% at 50% 50%); }
+/* logo：使用者提供的黑金陰陽線稿（public/logo.png，已裁掉外圍留白），白底直接放 */
+.seal { display: block; width: 3.25rem; height: 3.25rem; }
 
 /* 書脊：直排書名，超過高度就往左折成第二行，像書衣上的書名 */
 .spine {
