@@ -87,7 +87,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 .quote::after { content: "」"; }
 
 /* 書封：外站圖片（Google Books 直式；博客來是含白邊的正方形）。白底、不加框不加影，高度隨圖 */
-.cover-img { display: block; width: 100%; height: auto; background: #fff; }
+.cover-img { display: block; height: auto; background: #fff; }
 .cover-blank { aspect-ratio: 3 / 4; }
 .cover-blank {
   display: grid; place-items: center; text-align: center;
