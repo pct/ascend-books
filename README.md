@@ -54,7 +54,7 @@ draft: true                # 選填，不輸出（dev 模式看得到）
 
 欄位錯了 `ascend build` 會一次列出所有檔案的錯誤再停下來。
 
-獨立頁面放 `content/pages/<slug>.md`（例如 `about.md` → `/about/`），只需要 `title`。
+獨立頁面（若需要）放 `content/pages/<slug>.md`（例如 `about.md` → `/about/`），只需要 `title`；目前沒有。
 
 ## 站台設定
 

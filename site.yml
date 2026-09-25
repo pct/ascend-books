@@ -13,4 +13,3 @@ og_image: /icon-512.png
 nav:
   - { label: 書架, href: / }
   - { label: 標籤, href: /tags/ }
-  - { label: 關於, href: /about/ }
