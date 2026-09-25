@@ -13,10 +13,10 @@ const preferred = args.get("model") ?? "gpt-image-2.5";
 const out = args.get("out") ?? "public/logo.png";
 
 const prompt = args.get("prompt") ?? `
-A square app icon / logo for a personal reading-notes website called "Ascend Books" (Chinese: 讀書心得).
-Concept: a Chinese seal (藏書印) — a single bold traditional Chinese character "昇" (meaning "ascend") carved in the style of a hand-cut zhuanshu/seal-script red ink stamp, white paper background.
-Style: minimal, flat, high contrast; cinnabar seal red (#B5382E) impression on off-white paper (#F7F6F2); slightly rough, ink-bleed edges like a real stamp; a thin square border as part of the seal.
-No other text, no gradients, no 3D, no shadows, no extra objects. Centered, fills about 70% of the canvas.
+A square logo mark for "Ascend Books", a Taoist-flavored reading-notes site.
+Subject: a xiuxian (修仙) ascension symbol — a single stylized crane (仙鶴) rising straight upward, wings folded back like an arrow, passing through three stacked auspicious cloud swirls (祥雲) beneath it.
+Rendered as a single-color cinnabar red (#B5382E) seal-stamp impression on off-white paper (#F7F6F2): flat, bold, geometric, symmetrical, slightly rough ink-bleed stamp edges, thin square seal border.
+Absolutely NO text, NO letters, NO Chinese characters, NO numbers. Centered, fills about 70% of the canvas.
 `.trim();
 
 // 找可用模型：優先使用者指定，找不到就退到其他 gpt-image 模型。
