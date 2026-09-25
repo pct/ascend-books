@@ -102,6 +102,10 @@ make deploy-cf        # = bin/ascend build && bunx wrangler pages deploy dist --
 - **Netlify / Vercel**：同樣 Actions 產 `dist/` 後用各自 CLI 上傳（`netlify deploy --prod --dir dist`、`vercel deploy --prebuilt`）。
 - **自己的機器（nginx）**：`rsync -az --delete dist/ user@host:/srv/http/ascend-books/`，nginx 用 `try_files $uri $uri/ =404`。
 
+## 分潤
+
+購買連結怎麼申請博客來 AP 策略聯盟、momo 點點賺，見 [docs/affiliate.md](docs/affiliate.md)。
+
 ## 結構
 
 ```
