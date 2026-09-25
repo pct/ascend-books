@@ -1,6 +1,6 @@
 name: ascend
 version: 0.1.0
-description: Astro 風格的 Crystal 靜態站產生器（ascend-books.1tron.ai）
+description: Astro 風格的 Crystal 靜態站產生器（ascend.1tron.ai）
 
 authors:
   - pct <pct@4point-inc.com>

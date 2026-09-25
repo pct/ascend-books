@@ -1,6 +1,6 @@
 # Ascend Books — 讀書心得
 
-<https://ascend-books.1tron.ai>
+<https://ascend.1tron.ai>
 
 用自己寫的 Crystal 靜態站產生器 `ascend` 產生：Markdown 進、靜態 HTML 出。
 樣式 Tailwind 4 + daisyUI 5（透過 bun 的 `@tailwindcss/cli`），部署 GitHub Pages。
@@ -79,7 +79,7 @@ head_html: |
 1. 建 GitHub repo，`git push origin main`。
 2. Settings → Pages → Build and deployment → Source 選 **GitHub Actions**。
 3. DNS（Cloudflare）：`ascend-books` CNAME → `<github帳號>.github.io`，先用灰色雲（DNS only）讓 GitHub 簽憑證，之後可開橘雲。
-4. Settings → Pages → Custom domain 填 `ascend-books.1tron.ai`，勾 Enforce HTTPS。`public/CNAME` 已經放好。
+4. Settings → Pages → Custom domain 填 `ascend.1tron.ai`，勾 Enforce HTTPS。`public/CNAME` 已經放好。
 
 之後每次 push main，`.github/workflows/deploy.yml` 會跑測試、建站、發佈。
 

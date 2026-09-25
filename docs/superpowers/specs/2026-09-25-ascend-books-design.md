@@ -2,7 +2,7 @@
 
 **日期：** 2026-09-25
 **狀態：** 自主模式下擬定（使用者未即時審核，假設項已標示）
-**網址：** https://ascend-books.1tron.ai
+**網址：** https://ascend.1tron.ai
 
 ---
 
@@ -11,7 +11,7 @@
 - 用 **Crystal** 寫一個小型靜態站產生器 `ascend`，向 Astro 學習專案結構與 DX：
   content collections + frontmatter schema、layouts / components、clean URL 輸出、`public/` 原樣複製、`dist/` 輸出、dev server 熱重建、sitemap / RSS。
 - 樣式用 **Tailwind 4 + daisyUI 5**（透過 bun 的 `@tailwindcss/cli` 產生單一 CSS）。
-- 產出第一個站：**讀書心得**，部署到 `ascend-books.1tron.ai`。
+- 產出第一個站：**讀書心得**，部署到 `ascend.1tron.ai`。
 
 ## 非目標
 
@@ -24,7 +24,7 @@
 
 1. 站名顯示為「Ascend Books」＋副標「讀書心得」，可在 `site.yml` 改。
 2. 首批內容從 `~/ai/_books` 移植一篇既有心得（靈界修行筆記），並依「修道學習路徑」把三本待讀書列為 `status: wishlist`，文字皆取自使用者自己的筆記。
-3. 部署到 **GitHub Pages**（使用者於 2026-09-25 補充）：GitHub Actions 在 push 到 main 時安裝 Crystal + bun、`ascend build`、上傳 `dist/` 到 Pages；`public/CNAME` 寫 `ascend-books.1tron.ai`，DNS 端加 CNAME 指到 `<user>.github.io`。
+3. 部署到 **GitHub Pages**（使用者於 2026-09-25 補充）：GitHub Actions 在 push 到 main 時安裝 Crystal + bun、`ascend build`、上傳 `dist/` 到 Pages；`public/CNAME` 寫 `ascend.1tron.ai`，DNS 端加 CNAME 指到 `<user>.github.io`。
 4. 模板採 ECR（編譯期），dev 模式下模板／原始碼變動時自動重編譯並重啟；內容、CSS、public 變動只需重建。
 
 ---
@@ -132,6 +132,6 @@ Crystal spec：frontmatter 切割、Book 驗證（成功／各種失敗）、摘
 ## 部署（GitHub Pages）
 
 - `.github/workflows/deploy.yml`：`on: push (main)` + `workflow_dispatch`。步驟：checkout → `crystal-lang/install-crystal` → `oven-sh/setup-bun` → `shards install` → `bun install --frozen-lockfile` → `crystal build --release src/ascend.cr -o bin/ascend` → `bin/ascend build` → `actions/upload-pages-artifact`（`dist/`）→ `actions/deploy-pages`。
-- `public/CNAME` = `ascend-books.1tron.ai`；`public/.nojekyll` 避免 Jekyll 處理。
+- `public/CNAME` = `ascend.1tron.ai`；`public/.nojekyll` 避免 Jekyll 處理。
 - 倉庫 Settings → Pages → Source 選 **GitHub Actions**；DNS 加 `ascend-books CNAME <owner>.github.io`。
 - 本機 `make deploy` 等同 `git push origin main`（部署由 Actions 完成）。
