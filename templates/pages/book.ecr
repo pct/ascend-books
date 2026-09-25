@@ -1,7 +1,7 @@
 <article class="mx-auto max-w-5xl px-5 py-10 sm:px-8 sm:py-14">
   <header class="grid items-start gap-8 sm:grid-cols-[auto_1fr] sm:gap-12">
     <% if c = book.cover %>
-    <img src="<%= h(c) %>" alt="《<%= h(book.title) %>》書封" width="176" height="176" decoding="async" class="cover-img cover-hero w-36 sm:w-44">
+    <img src="<%= h(c) %>" alt="《<%= h(book.title) %>》書封" width="176" height="258" decoding="async" class="cover-img cover-hero w-36 sm:w-44">
     <% else %>
     <span class="cover-img cover-blank cover-hero w-36 text-xl sm:w-44" aria-hidden="true"><%= h(book.title.chars.first(4).join) %></span>
     <% end %>

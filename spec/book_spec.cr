@@ -78,6 +78,7 @@ describe Ascend::Cover do
 
   it "recognises google's placeholder responses" do
     Ascend::Cover.placeholder?("image/png", "x" * 1269).should be_true
+    Ascend::Cover.placeholder?("image/png", "x" * 9103).should be_true
     Ascend::Cover.placeholder?("image/jpeg", "x" * 500).should be_true
     Ascend::Cover.placeholder?("image/jpeg", "real cover bytes " * 1000).should be_false
   end

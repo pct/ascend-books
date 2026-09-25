@@ -3,7 +3,7 @@
   <div class="mx-auto grid max-w-5xl items-start gap-8 px-5 py-12 sm:grid-cols-[auto_auto_1fr] sm:gap-12 sm:px-8 sm:py-16">
     <a href="<%= latest.url %>" class="block w-40 sm:w-52" aria-label="《<%= h(latest.title) %>》">
       <% if c = latest.cover %>
-      <img src="<%= h(c) %>" alt="" width="208" height="208" decoding="async" class="cover-img cover-hero w-full">
+      <img src="<%= h(c) %>" alt="" width="208" height="305" decoding="async" class="cover-img cover-hero w-full">
       <% else %>
       <span class="cover-img cover-blank cover-hero w-full text-2xl" aria-hidden="true"><%= h(latest.title.chars.first(4).join) %></span>
       <% end %>

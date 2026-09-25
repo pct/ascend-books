@@ -1,7 +1,7 @@
 <li data-book data-search="<%= h(([book.title, book.author] + book.tags).join(" ").downcase) %>">
   <a href="<%= book.url %>" class="shelf-row">
     <% if c = book.cover %>
-    <img src="<%= h(c) %>" alt="" width="48" height="68" loading="lazy" decoding="async" class="cover-img w-12">
+    <img src="<%= h(c) %>" alt="" width="48" height="70" loading="lazy" decoding="async" class="cover-img w-12 shrink-0">
     <% else %>
     <span class="cover-img cover-blank w-12" aria-hidden="true"><%= h(book.title.chars.first(2).join) %></span>
     <% end %>

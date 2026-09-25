@@ -9,6 +9,7 @@ module Ascend
       out_dir = "dist"
       drafts = false
       author : String? = nil
+      force = false
 
       parser = OptionParser.new do |p|
         p.banner = <<-TXT
@@ -27,6 +28,7 @@ module Ascend
         p.on("-o DIR", "--out DIR", "輸出目錄（預設 dist）") { |v| out_dir = v }
         p.on("--drafts", "連 draft: true 的內容一起輸出（dev 預設開）") { drafts = true }
         p.on("-a NAME", "--author NAME", "new：作者") { |v| author = v }
+        p.on("--force", "cover：已有 cover 也重新查並覆蓋") { force = true }
         p.on("-h", "--help", "說明") { puts p; exit 0 }
         p.on("-v", "--version", "版本") { puts VERSION; exit 0 }
         p.invalid_option { |flag| STDERR.puts "未知選項 #{flag}"; STDERR.puts p; exit 2 }
@@ -57,7 +59,7 @@ module Ascend
         ok = true
         args.each do |path|
           begin
-            ok = false unless Cover.apply(path)
+            ok = false unless Cover.apply(path, force)
           rescue e : Error
             STDERR.puts "  ✗ #{e.message}"
             ok = false
