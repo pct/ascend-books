@@ -8,7 +8,7 @@
 }
 
 /* ──────────────────────────────────────────────────────────
-   Ascend Books — 月白紙、墨字、印泥紅（只給印章）、靛青（連結）
+   Ascend Books — 月白紙、墨字、金（logo／強調）、山色青（連結）
    ────────────────────────────────────────────────────────── */
 @plugin "daisyui/theme" {
   name: "ascend";
@@ -21,9 +21,9 @@
   --color-base-300: #d8d6ce;
   --color-base-content: #1c2026; /* 墨 */
 
-  --color-primary: #b5382e;    /* 印泥 */
-  --color-primary-content: #f7f6f2;
-  --color-secondary: #34507a;  /* 靛 */
+  --color-primary: #b8862b;    /* 金（跟 logo）*/
+  --color-primary-content: #1c2026;
+  --color-secondary: #2f6b75;  /* 山色青 */
   --color-secondary-content: #f7f6f2;
   --color-accent: #4c6b4f;
   --color-accent-content: #f7f6f2;
@@ -37,7 +37,7 @@
   --color-success-content: #f7f6f2;
   --color-warning: #a8752a;
   --color-warning-content: #1c2026;
-  --color-error: #b5382e;
+  --color-error: #a83a2f;
   --color-error-content: #f7f6f2;
 
   --radius-selector: 0.25rem;
@@ -61,9 +61,9 @@
   --color-base-300: #31363e;
   --color-base-content: #e9e6de;
 
-  --color-primary: #d9503f;
+  --color-primary: #d9b25a;
   --color-primary-content: #16191e;
-  --color-secondary: #8fa9d6;
+  --color-secondary: #7fb8c0;
   --color-secondary-content: #16191e;
   --color-accent: #8fb193;
   --color-accent-content: #16191e;
@@ -103,8 +103,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
   outline: 2px solid var(--color-secondary); outline-offset: 3px;
 }
 
-/* 印章 logo：gpt-image 畫的仙鶴穿祥雲飛升（public/logo.png），紙底已在圖裡 */
-.seal { display: block; width: 3.5rem; height: 3.5rem; }
+/* logo：使用者提供的金色山水圓徽（public/logo.png）。白底用混合模式吃掉，亮暗兩種主題各一招 */
+.seal { display: block; width: 4rem; height: 4rem; clip-path: circle(45% at 50% 50%); mix-blend-mode: multiply; }
+@media (prefers-color-scheme: dark) { .seal { mix-blend-mode: normal; } }
 
 /* 書脊：直排書名，超過高度就往左折成第二行，像書衣上的書名 */
 .spine {
