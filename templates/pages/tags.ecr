@@ -1,0 +1,8 @@
+<section class="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+  <h1 class="text-3xl font-bold">標籤</h1>
+  <ul class="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-lg">
+    <% tags.each do |(t, bs)| %>
+    <li><a href="<%= tag_url(t) %>" class="tag-link">#<%= h(t) %><span class="ml-1.5 text-sm text-base-content/55"><%= bs.size %></span></a></li>
+    <% end %>
+  </ul>
+</section>

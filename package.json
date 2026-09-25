@@ -1,0 +1,14 @@
+{
+  "name": "ascend-books",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "css": "tailwindcss -i src/styles/site.css -o dist/assets/site.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/typography": "^0.5.19",
+    "daisyui": "^5.7.46",
+    "tailwindcss": "^4.3.3"
+  }
+}

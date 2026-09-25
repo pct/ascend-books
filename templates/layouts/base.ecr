@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="<%= config.lang %>">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= h(title) %></title>
+  <meta name="description" content="<%= h(description) %>">
+  <link rel="canonical" href="<%= canonical %>">
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="<%= h(config.title) %>" href="/rss.xml">
+  <meta name="generator" content="ascend <%= Ascend::VERSION %>">
+  <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#16191e" media="(prefers-color-scheme: dark)">
+
+  <meta property="og:title" content="<%= h(title) %>">
+  <meta property="og:description" content="<%= h(description) %>">
+  <meta property="og:type" content="<%= og_type %>">
+  <meta property="og:url" content="<%= canonical %>">
+  <meta property="og:site_name" content="<%= h(config.title) %>">
+  <meta property="og:locale" content="zh_TW">
+  <% if img = config.og_image %>
+  <meta property="og:image" content="<%= config.absolute(img) %>">
+  <meta name="twitter:card" content="summary">
+  <% else %>
+  <meta name="twitter:card" content="summary">
+  <% end %>
+  <meta name="twitter:title" content="<%= h(title) %>">
+  <meta name="twitter:description" content="<%= h(description) %>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap"></noscript>
+  <link rel="stylesheet" href="/assets/site.css">
+  <% unless config.head_html.empty? %>
+<%= config.head_html %>
+  <% end %>
+  <% if json_ld %>
+  <script type="application/ld+json"><%= json_ld %></script>
+  <% end %>
+</head>
+<body class="flex min-h-screen flex-col bg-base-100 text-base-content antialiased">
+<%= navbar(path) %>
+<main class="flex-1">
+<%= body %>
+</main>
+<%= footer %>
+</body>
+</html>

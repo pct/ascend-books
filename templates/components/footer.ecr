@@ -1,0 +1,10 @@
+<footer class="mt-24 border-t border-base-300">
+  <div class="mx-auto flex max-w-5xl flex-col gap-2 px-5 py-8 text-sm text-base-content/60 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+    <p><%= h(config.footer.empty? ? config.subtitle : config.footer) %></p>
+    <p class="flex gap-4">
+      <a class="hover:text-base-content" href="/rss.xml">RSS</a>
+      <a class="hover:text-base-content" href="/sitemap.xml">Sitemap</a>
+      <span>© <%= Time.local.year %> <%= h(config.author) %></span>
+    </p>
+  </div>
+</footer>

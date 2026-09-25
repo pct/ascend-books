@@ -1,0 +1,9 @@
+<section class="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+  <p class="text-sm text-base-content/55"><a href="/" class="hover:text-base-content">書架</a><span class="mx-2">／</span><a href="/tags/" class="hover:text-base-content">標籤</a></p>
+  <h1 class="mt-4 text-3xl font-bold">#<%= h(tag) %></h1>
+  <ol class="mt-8 border-t border-base-300">
+    <% books.each do |book| %>
+    <%= book_row(book) %>
+    <% end %>
+  </ol>
+</section>

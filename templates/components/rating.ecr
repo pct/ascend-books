@@ -1,0 +1,5 @@
+<span class="rating rating-xs gap-0.5" role="img" aria-label="評分 <%= rating %> / 5">
+<% 1.upto(5) do |i| %>
+  <span class="mask mask-star-2 <%= i <= rating ? "bg-primary" : "bg-base-300" %>" aria-hidden="true"></span>
+<% end %>
+</span>

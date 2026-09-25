@@ -1,0 +1,82 @@
+<article class="mx-auto max-w-5xl px-5 py-10 sm:px-8 sm:py-14">
+  <header class="grid items-start gap-8 sm:grid-cols-[auto_1fr] sm:gap-12">
+    <% if c = book.cover %>
+    <img src="<%= h(c) %>" alt="《<%= h(book.title) %>》書封" width="176" height="176" decoding="async" class="cover-img cover-hero w-36 sm:w-44">
+    <% else %>
+    <span class="cover-img cover-blank cover-hero w-36 text-xl sm:w-44" aria-hidden="true"><%= h(book.title.chars.first(4).join) %></span>
+    <% end %>
+    <div class="min-w-0 max-w-2xl">
+      <h1 class="text-3xl font-bold leading-tight sm:text-4xl"><%= h(book.title) %></h1>
+      <p class="mt-3 text-lg text-base-content/75"><%= h(book.author) %></p>
+      <% if book.publisher || book.year || book.isbn %>
+      <p class="mt-1 text-sm text-base-content/60">
+        <% if p = book.publisher %><%= h(p) %><% end %><% if y = book.year %><%= book.publisher ? "，" : "" %><%= y %><% end %><% if i = book.isbn %><span class="ml-3">ISBN <%= h(i) %></span><% end %>
+      </p>
+      <% end %>
+      <div class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-base-content/60">
+        <time datetime="<%= book.date_iso %>"><%= book.date_human %></time>
+        <% if r = book.rating %><%= rating_stars(r) %><% end %>
+      </div>
+      <% unless book.tags.empty? %>
+      <div class="mt-4"><%= tag_chips(book.tags, true) %></div>
+      <% end %>
+      <% unless book.buy.empty? %>
+      <p class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
+        <span class="text-base-content/55">購買</span>
+        <% book.buy.each do |(shop, url)| %>
+        <a href="<%= h(url) %>" rel="noopener sponsored" target="_blank" class="buy-link"><%= h(shop) %></a>
+        <% end %>
+      </p>
+      <% end %>
+    </div>
+  </header>
+
+  <div class="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1fr)_14rem]">
+    <div class="max-w-2xl">
+      <% unless book.toc.empty? %>
+      <details class="mb-8 border-y border-base-300 py-3 lg:hidden">
+        <summary class="cursor-pointer font-bold">目錄</summary>
+        <ul class="mt-3 space-y-1.5 text-sm">
+          <% book.toc.each do |hd| %>
+          <li class="<%= hd.level >= 3 ? "pl-4" : "" %>"><a href="#<%= hd.id %>" class="hover:text-primary"><%= h(hd.text) %></a></li>
+          <% end %>
+        </ul>
+      </details>
+      <% end %>
+      <div class="prose prose-lg prose-ascend max-w-none">
+<%= book.html %>
+      </div>
+    </div>
+    <% unless book.toc.empty? %>
+    <aside class="hidden lg:block">
+      <nav class="sticky top-8 border-l border-base-300 pl-4 text-sm" aria-label="目錄">
+        <p class="mb-3 font-bold text-base-content/70">目錄</p>
+        <ul class="space-y-1.5">
+          <% book.toc.each do |hd| %>
+          <li class="<%= hd.level >= 3 ? "pl-3" : "" %>"><a href="#<%= hd.id %>" class="text-base-content/70 hover:text-primary"><%= h(hd.text) %></a></li>
+          <% end %>
+        </ul>
+      </nav>
+    </aside>
+    <% end %>
+  </div>
+
+  <% if book.prev_book || book.next_book %>
+  <nav class="mt-16 grid gap-6 border-t border-base-300 pt-8 sm:grid-cols-2" aria-label="上下篇">
+    <% if p = book.prev_book %>
+    <a href="<%= p.url %>" class="group">
+      <span class="block text-xs text-base-content/55">上一本</span>
+      <span class="mt-1 block font-bold group-hover:text-primary"><%= h(p.title) %></span>
+    </a>
+    <% else %><span></span><% end %>
+    <% if n = book.next_book %>
+    <a href="<%= n.url %>" class="group sm:text-right">
+      <span class="block text-xs text-base-content/55">下一本</span>
+      <span class="mt-1 block font-bold group-hover:text-primary"><%= h(n.title) %></span>
+    </a>
+    <% end %>
+  </nav>
+  <% end %>
+
+  <p class="mt-12"><a href="/" class="read-link">回書架</a></p>
+</article>

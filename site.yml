@@ -1,0 +1,16 @@
+# 站台設定（ascend 讀這個檔）
+title: Ascend Books
+subtitle: 讀書心得
+description: 一頁一頁往上爬。讀過的、在讀的、想讀的書，和讀完留下的念頭。
+url: https://ascend-books.1tron.ai
+author: pct
+lang: zh-Hant
+footer: 凡人修仙，入世求真。
+og_image: /icon-512.png
+# 流量統計：把 Cloudflare Web Analytics（或 GoatCounter 等）的 <script> 貼進來，會放進每頁 <head>
+# head_html: |
+#   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "你的 token"}'></script>
+nav:
+  - { label: 書架, href: / }
+  - { label: 標籤, href: /tags/ }
+  - { label: 關於, href: /about/ }
