@@ -1,6 +1,6 @@
 # Ascend Books — `make` 或 `make help` 看中文說明；指令全是包 bin/ascend
 .DEFAULT_GOAL := help
-.PHONY: help setup build dev check new cover spec deploy status clean
+.PHONY: help setup build dev check new cover spec deploy deploy-cf status clean
 
 SRC := $(shell find src templates -type f) shard.yml
 
@@ -15,6 +15,7 @@ help:            ## 說明
 	@echo "  make cover F=content/books/xxx.md   依 isbn 到 Google Books 找書封"
 	@echo "  make spec                      跑測試（crystal spec）"
 	@echo "  make deploy                    先 check，再 git push main → Actions 部署到 ascend.1tron.ai"
+	@echo "  make deploy-cf                 build 後直接上傳 dist/ 到 Cloudflare Pages（要先 bunx wrangler login）"
 	@echo "  make status                    看最近幾次部署狀態"
 	@echo "  make clean                     刪 dist/ 與 bin/"
 
@@ -48,6 +49,9 @@ spec:
 deploy: check
 	git push origin main
 	@echo "已推上 GitHub，Actions 會建置並部署；看進度：make status"
+
+deploy-cf: build
+	bunx wrangler pages deploy dist --project-name ascend-books
 
 status:
 	gh run list --limit 3
