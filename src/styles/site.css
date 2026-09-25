@@ -4,11 +4,11 @@
 @plugin "@tailwindcss/typography";
 
 @plugin "daisyui" {
-  themes: ascend --default, ascend-dark --prefersdark;
+  themes: ascend --default;
 }
 
 /* ──────────────────────────────────────────────────────────
-   Ascend Books — 月白紙、墨字、金（logo／強調）、山色青（連結）
+   Ascend Books — 純白底（書封圖多半白邊，白底才不會露框）、墨字、金（強調）、山色青（連結）
    ────────────────────────────────────────────────────────── */
 @plugin "daisyui/theme" {
   name: "ascend";
@@ -16,9 +16,9 @@
   prefersdark: false;
   color-scheme: light;
 
-  --color-base-100: #f7f6f2;   /* 月白 */
-  --color-base-200: #edece6;
-  --color-base-300: #d8d6ce;
+  --color-base-100: #ffffff;
+  --color-base-200: #f4f4f2;
+  --color-base-300: #e1e1dd;
   --color-base-content: #1c2026; /* 墨 */
 
   --color-primary: #b8862b;    /* 金（跟 logo）*/
@@ -50,46 +50,6 @@
   --noise: 0;
 }
 
-@plugin "daisyui/theme" {
-  name: "ascend-dark";
-  default: false;
-  prefersdark: true;
-  color-scheme: dark;
-
-  --color-base-100: #16191e;   /* 墨夜 */
-  --color-base-200: #1e2228;
-  --color-base-300: #31363e;
-  --color-base-content: #e9e6de;
-
-  --color-primary: #d9b25a;
-  --color-primary-content: #16191e;
-  --color-secondary: #7fb8c0;
-  --color-secondary-content: #16191e;
-  --color-accent: #8fb193;
-  --color-accent-content: #16191e;
-
-  --color-neutral: #e9e6de;
-  --color-neutral-content: #16191e;
-
-  --color-info: #8fa9d6;
-  --color-info-content: #16191e;
-  --color-success: #8fb193;
-  --color-success-content: #16191e;
-  --color-warning: #d1a35a;
-  --color-warning-content: #16191e;
-  --color-error: #d9503f;
-  --color-error-content: #16191e;
-
-  --radius-selector: 0.25rem;
-  --radius-field: 0.25rem;
-  --radius-box: 0.25rem;
-  --size-selector: 0.25rem;
-  --size-field: 0.25rem;
-  --border: 1px;
-  --depth: 0;
-  --noise: 0;
-}
-
 @theme {
   --font-sans: "Noto Serif TC", "Source Han Serif TC", "Songti TC", "PingFang TC", serif;
   --font-serif: "Noto Serif TC", "Source Han Serif TC", "Songti TC", serif;
@@ -104,8 +64,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 }
 
 /* logo：使用者提供的金色山水圓徽（public/logo.png）。白底用混合模式吃掉，亮暗兩種主題各一招 */
-.seal { display: block; width: 4rem; height: 4rem; clip-path: circle(45% at 50% 50%); mix-blend-mode: multiply; }
-@media (prefers-color-scheme: dark) { .seal { mix-blend-mode: normal; } }
+.seal { display: block; width: 4rem; height: 4rem; clip-path: circle(45% at 50% 50%); }
 
 /* 書脊：直排書名，超過高度就往左折成第二行，像書衣上的書名 */
 .spine {
@@ -127,13 +86,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 .quote::before { content: "「"; margin-left: -1em; }
 .quote::after { content: "」"; }
 
-/* 書封：外站圖片；博客來的圖是含白邊的正方形，直接用方形框 */
-.cover-img {
-  display: block; aspect-ratio: 1 / 1; object-fit: cover;
-  background: var(--color-base-200);
-  border: 1px solid var(--color-base-300);
-}
-.cover-hero { box-shadow: 0 12px 28px -16px color-mix(in srgb, var(--color-base-content) 60%, transparent); }
+/* 書封：外站圖片，多半是含白邊的正方形；站是白底，所以不加框、不加影，讓白邊消失 */
+.cover-img { display: block; aspect-ratio: 1 / 1; object-fit: contain; background: #fff; }
 .cover-blank {
   display: grid; place-items: center; text-align: center;
   color: var(--color-base-content); opacity: 0.6;
